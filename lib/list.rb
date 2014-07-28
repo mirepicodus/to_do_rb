@@ -17,4 +17,8 @@ class List
     @tasks << task
   end
 
+  def sort_priority
+    @tasks.sort! {|a, b| b.priority <=> a.priority}
+  end
+
 end

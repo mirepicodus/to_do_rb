@@ -29,6 +29,21 @@ describe :List do
     expect(newList.task_list).to eq([])
   end
 
+  it 'should sort task by priority' do
+
+    newList = List.new("Awesome Things")
+    newTask1 = Task.new("eating")
+    newTask1.set_priority(4)
+    newList.add_task(newTask1)
+    newTask2 = Task.new("sleeping")
+    newTask2.set_priority(5)
+    newList.add_task(newTask2)
+    newTask3 = Task.new("homework")
+    newTask3.set_priority(2)
+    newList.add_task(newTask3)
+    newList.sort_priority
+    expect(newList.task_list).to eq([newTask2, newTask1, newTask3])
+  end
 end
 
 describe :Task do
@@ -37,16 +52,23 @@ describe :Task do
     expect(new_task).to be_a Task
   end
 
-  it 'should take a description' do
+  it 'should initialize with description, complete, and priority' do
     new_task = Task.new("eating sandwiches")
     expect(new_task.description).to eq("eating sandwiches")
     expect(new_task.complete?).to eq(false)
+    expect(new_task.priority).to eq(0)
   end
 
   it 'should mark task as done' do
     new_task = Task.new("eating")
     new_task.toggleStatus
     expect(new_task.complete?).to eq(true)
+  end
+
+  it 'should set Priority' do
+    new_task = Task.new("sleeping")
+    new_task.set_priority(5)
+    expect(new_task.priority).to eq(5)
   end
 
 end
