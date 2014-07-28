@@ -1,5 +1,6 @@
 require './lib/task'
 
+@to_do = []
 @list = []
 
 def main_menu
