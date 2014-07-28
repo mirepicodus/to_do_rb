@@ -4,6 +4,7 @@ class Task
     @description = description
     @status = false
     @priority = 0
+    @date
   end
 
   def description
@@ -18,8 +19,16 @@ class Task
     @priority
   end
 
+  def date
+    @date
+  end
+
   def set_priority(number)
     @priority = number
+  end
+
+  def set_date(date)
+    @date = date
   end
 
   def toggleStatus
