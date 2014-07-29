@@ -21,4 +21,8 @@ class List
     @tasks.sort! {|a, b| b.priority <=> a.priority}
   end
 
+  def sort_date
+    @tasks.sort! {|a, b| a.date <=> b.date}
+  end
+
 end

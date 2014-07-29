@@ -27,8 +27,8 @@ class Task
     @priority = number
   end
 
-  def set_date(date)
-    @date = date
+  def set_date(year, month, day)
+    @date = Time.new(year, month, day)
   end
 
   def toggleStatus

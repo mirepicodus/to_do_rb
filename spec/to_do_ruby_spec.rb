@@ -45,21 +45,21 @@ describe :List do
     expect(newList.task_list).to eq([newTask2, newTask1, newTask3])
   end
 
-  # it 'should sort date by priority' do
+  it 'should sort date by priority' do
 
-  #   newList = List.new("Awesome Things")
-  #   newTask1 = Task.new("eating")
-  #   newTask1.set_date("8/26/14")
-  #   newList.add_task(newTask1)
-  #   newTask2 = Task.new("sleeping")
-  #   newTask2.set_date("8/27/14")
-  #   newList.add_task(newTask2)
-  #   newTask3 = Task.new("homework")
-  #   newTask3.set_date("8/13/14")
-  #   newList.add_task(newTask3)
-  #   newList.sort_date
-  #   expect(newList.task_list).to eq([newTask3, newTask1, newTask2])
-  # end
+    newList = List.new("Awesome Things")
+    newTask1 = Task.new("eating")
+    newTask1.set_date(2014, 8, 26)
+    newList.add_task(newTask1)
+    newTask2 = Task.new("sleeping")
+    newTask2.set_date(2016, 8, 26)
+    newList.add_task(newTask2)
+    newTask3 = Task.new("homework")
+    newTask3.set_date(2001, 8, 26)
+    newList.add_task(newTask3)
+    newList.sort_date
+    expect(newList.task_list).to eq([newTask3, newTask1, newTask2])
+  end
 
 end
 
@@ -90,8 +90,8 @@ describe :Task do
 
   it 'should set a due date' do
     new_task = Task.new("sleeping")
-    new_task.set_date("8/26/14")
-    expect(new_task.date).to eq("8/26/14")
+    new_task.set_date(2014, 8, 26)
+    expect(new_task.date.day).to eq(26)
   end
 
 end
