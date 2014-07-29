@@ -94,6 +94,18 @@ describe :Task do
     expect(new_task.date.day).to eq(26)
   end
 
+  it 'is empty at first' do
+    new_task = Task.new("sleeping")
+    Task.clear
+    Task.all.should eq []
+  end
+
+  it 'empties out all of the saved tasks' do
+    Task.new('wash the lion').save
+    Task.clear
+    Task.all.should eq []
+  end
+
 end
 
 
